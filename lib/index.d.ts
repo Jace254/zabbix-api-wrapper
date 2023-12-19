@@ -5,7 +5,7 @@ declare class ZabbixApi {
     private id;
     private auth_token;
     constructor(user: string, password: string, api_url: string);
-    request(method: string, params: Record<string, any>): Promise<any>;
+    request(method: string, params: Record<string, any>, auth?: string): Promise<any>;
     login(): Promise<string | null>;
     private post;
     private auth;
