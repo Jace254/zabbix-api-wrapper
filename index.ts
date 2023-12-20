@@ -15,7 +15,7 @@ class ZabbixApi {
   public async request(
     method: string,
     params: Record<string, any>,
-    auth?: string
+    token?: string
   ): Promise<any> {
     await this.auth();
 
@@ -23,8 +23,12 @@ class ZabbixApi {
     const data = {
       method: method,
       params: params,
-      auth: this.auth_token ?? auth ?? null,
+      auth: token ?? this.auth_token ?? null,
     };
+
+    if(data.auth === null) {
+      throw new Error("Missing auth token, run `login` or provide a token")
+    }
 
     const response = await this.post(data);
     return this.wrap(response);

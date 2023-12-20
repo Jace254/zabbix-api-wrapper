@@ -39,7 +39,7 @@ const getProblems = async () =>
 async function test() {
     const code = await login()
 
-    console.log(`Logged in with code ${code}`)
+    console.log(`Logged in with token ${code}`)
 
     const hosts = await getHosts()
 
