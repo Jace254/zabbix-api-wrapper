@@ -1,9 +1,15 @@
 class ZabbixApi {
-  private user: string;
-  private password: string;
-  private api_url: string;
-  private id: number;
-  private auth_token: string | undefined;
+  user: string;
+  password: string;
+  api_url: string;
+  /**
+   * Request Id
+   */
+  id: number;
+  /**
+   * Authentication api token to use on zabbix
+   */
+  auth_token: string | undefined;
 
   constructor(user: string, password: string, api_url: string) {
     this.user = user;
