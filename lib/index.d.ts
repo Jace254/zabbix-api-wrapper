@@ -1,4 +1,4 @@
-declare class ZabbixApi {
+export default class ZabbixApi {
     user: string;
     password: string;
     api_url: string;
@@ -11,4 +11,3 @@ declare class ZabbixApi {
     private auth;
     private wrap;
 }
-export default ZabbixApi;

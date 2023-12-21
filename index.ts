@@ -1,4 +1,4 @@
-class ZabbixApi {
+export default class ZabbixApi {
   user: string;
   password: string;
   api_url: string;
@@ -85,5 +85,3 @@ class ZabbixApi {
     return body.result;
   }
 }
-
-export default ZabbixApi;
