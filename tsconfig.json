@@ -27,7 +27,8 @@
     "exclude": [
         "node_modules",
         "example",
-        "lib"
+        "lib",
+        "bump.config.ts"
     ],
     "include": [
         "./**/*.ts",
