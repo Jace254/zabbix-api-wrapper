@@ -1,4 +1,4 @@
-export default class ZabbixApi {
+export class ZabbixApi {
   user: string;
   password: string;
   api_url: string;
