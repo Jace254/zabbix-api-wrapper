@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "dev": "nodemon --exec ts-node example/index.ts",
-    "release": "npx bumpp && npm publish"
+    "release": "npx bumpp && npm publish",
+    "test": "nodemon --exec ts-node example/index.ts"
   },
   "keywords": [],
   "publishConfig": {

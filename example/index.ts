@@ -1,30 +1,29 @@
-import ZabbixApi from "../lib";
+import * as ZabbixApi from "../lib";
 
 // replace with your own credentials
-const zabbix = new ZabbixApi(
-    "customer", 
-    "RacomDemo1234",
-    "http://example.com/zabbix/api_jsonrpc.php"
+const zabbix = new ZabbixApi.ZabbixApi(
+    "cd88c094883d2676bf1010932bd03dea6a0a8e57c53917946a44b114d29f9c50",
+    "http://172.16.6.2/api_jsonrpc.php",
 )
 
-const login = async () => await zabbix.login().catch((r) => r)
 
 const getHosts = async () => await  zabbix.request("hostgroup.get", {
     "output": "extend",
     "sortfield": "name"
-}).catch((r) => r)
+}
+).catch((r: any) => r)
 
 const fetchAlerts = async () => await zabbix.request("alert.get", {
     "output":"extend",
     "limit": 10
-}).catch((r) => r)
+}).catch((r: any) => r)
 
 const getActions = async () => await zabbix.request("action.get", {
     "filter": {"name": "ZABBIX Action"},
     "select_operations": "extend",
     "select_conditions": "extend",
     "output": "extend"
-}).catch((r) => r)
+}).catch((r: any) => r)
 
 
 const getProblems = async () =>
@@ -33,14 +32,10 @@ const getProblems = async () =>
     selectAcknowledges: "extend", // Optionally include acknowledgements
     selectTags: "extend", // Optionally include tags
     limit: 10,
-  }).catch((r) => r);
+  }).catch((r: any) => r);
 
 
 async function test() {
-    const code = await login()
-
-    console.log(`Logged in with token ${code}`)
-
     const hosts = await getHosts()
 
     console.log(`hosts: ${JSON.stringify(hosts,null, 2)}`)
